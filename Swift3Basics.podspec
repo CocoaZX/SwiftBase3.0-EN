@@ -130,14 +130,14 @@ s.source       = { :git => "https://github.com/hw3308/Swift3Basics.git", :tag =>
   #  where they will only apply to your library. If you depend on other Podspecs
   #  you can include multiple dependencies to ensure it works.
 
-  s.requires_arc = true
+  # s.requires_arc = true
 
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   # s.dependency "JSONKit", "~> 1.4"
 
   s.pod_target_xcconfig = {
-    'SWIFT_INCLUDE_PATHS[sdk=iphoneos*]' => '$(SRCROOT)/CocoaPods/iphoneos',
-    'SWIFT_INCLUDE_PATHS[sdk=iphonesimulator*]'  => '$(SRCROOT)/CocoaPods/iphonesimulator'
+    "SWIFT_INCLUDE_PATHS[sdk=iphoneos*]" => "$(SRCROOT)/Swift3Basics/CocoaPods/iphoneos",
+    'SWIFT_INCLUDE_PATHS[sdk=iphonesimulator*]'  => '$(SRCROOT)/Swift3Basics/CocoaPods/iphonesimulator'
   }
 
  s.dependency 'SwiftyJSON'
