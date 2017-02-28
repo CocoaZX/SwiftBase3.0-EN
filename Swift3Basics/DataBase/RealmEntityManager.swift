@@ -21,7 +21,7 @@ open class RealmEntityManager<T: Object> {
     // MARK: - Query Entity
     
     open var objects: Results<T> {
-        return realm.objects(T)
+        return realm.objects(T.self)
     }
     
     open func object(primaryKey key: AnyObject) -> T? {

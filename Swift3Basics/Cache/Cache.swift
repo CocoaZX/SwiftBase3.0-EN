@@ -16,36 +16,20 @@ import ObjectMapper
 // MARK: - Cachable
 
 public protocol Cachable {
+    
     func value(forKey key: String) -> CacheItem?
+    
     func setValue(_ value: CacheItem)
     
     func string(forKey key: String) -> String?
+    
     func setString(_ value: String, forKey key: String, expires: Double?)
     
     func remove(forKey key: String)
+    
     func clear()
 }
 
-// MARK: - CacheItem
-
-open class CacheItem: Object {
-    dynamic var key: String?
-    dynamic var value: String?
-    dynamic var expires: Double = 0.0
-    
-    // 主键
-    override open static func primaryKey() -> String? {
-        return "key"
-    }
-    
-    var isValid: Bool {
-        return self.expires > Date.timeIntervalSinceReferenceDate
-    }
-}
-
-extension CacheItem {
-    public static let em = RealmEntityManager<CacheItem>(realm: Realm.sharedRealm)
-}
 
 // MARK: - CacheManager
 

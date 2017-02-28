@@ -134,7 +134,7 @@ open class Reachability: CustomStringConvertible {
         
         var context = SCNetworkReachabilityContext(version: 0, info: nil, retain: nil, release: nil, copyDescription: nil)
         context.info = UnsafeMutableRawPointer(Unmanaged.passUnretained(self).toOpaque())
-        ,
+        
         if SCNetworkReachabilitySetCallback(reachabilityRef, reachabilityCallback, &context) {
             if SCNetworkReachabilityScheduleWithRunLoop(reachabilityRef, CFRunLoopGetCurrent(), CFRunLoopMode.defaultMode.rawValue) {
                 notifierRunning = true

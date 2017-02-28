@@ -43,6 +43,8 @@
 		048677511E5D2E42002E2A74 /* WebView+UIDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0486772D1E5D2E42002E2A74 /* WebView+UIDelegate.swift */; };
 		048677521E5D2E42002E2A74 /* WebView+UserContentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0486772E1E5D2E42002E2A74 /* WebView+UserContentController.swift */; };
 		048677531E5D2E42002E2A74 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0486772F1E5D2E42002E2A74 /* WebView.swift */; };
+		049AE39D1E6524C800E9CB4C /* CacheItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049AE39C1E6524C800E9CB4C /* CacheItem.swift */; };
+		049AE39F1E65268900E9CB4C /* DateFormatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049AE39E1E65268900E9CB4C /* DateFormatter+Extension.swift */; };
 		B19D7B65BDF08063CA6FA947 /* Pods_Swift3Basics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36B237D24BBEEF8252ADC9BF /* Pods_Swift3Basics.framework */; };
 /* End PBXBuildFile section */
 
@@ -85,6 +87,8 @@
 		0486772D1E5D2E42002E2A74 /* WebView+UIDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WebView+UIDelegate.swift"; sourceTree = "<group>"; };
 		0486772E1E5D2E42002E2A74 /* WebView+UserContentController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WebView+UserContentController.swift"; sourceTree = "<group>"; };
 		0486772F1E5D2E42002E2A74 /* WebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		049AE39C1E6524C800E9CB4C /* CacheItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheItem.swift; sourceTree = "<group>"; };
+		049AE39E1E65268900E9CB4C /* DateFormatter+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extension.swift"; sourceTree = "<group>"; };
 		25AD88DE2C48A262A8993767 /* Pods-Swift3Basics.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swift3Basics.release.xcconfig"; path = "Pods/Target Support Files/Pods-Swift3Basics/Pods-Swift3Basics.release.xcconfig"; sourceTree = "<group>"; };
 		36B237D24BBEEF8252ADC9BF /* Pods_Swift3Basics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swift3Basics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		604D89E618275BAD2281C218 /* Pods-Swift3Basics.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swift3Basics.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Swift3Basics/Pods-Swift3Basics.debug.xcconfig"; sourceTree = "<group>"; };
@@ -139,6 +143,7 @@
 		048677041E5D2E42002E2A74 /* Cache */ = {
 			isa = PBXGroup;
 			children = (
+				049AE39C1E6524C800E9CB4C /* CacheItem.swift */,
 				048677051E5D2E42002E2A74 /* Cache.swift */,
 				048677061E5D2E42002E2A74 /* LocalStorage.swift */,
 				048677071E5D2E42002E2A74 /* RealmCache.swift */,
@@ -172,6 +177,7 @@
 		048677131E5D2E42002E2A74 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				049AE39E1E65268900E9CB4C /* DateFormatter+Extension.swift */,
 				048677141E5D2E42002E2A74 /* CALayer+Extension.swift */,
 				048677151E5D2E42002E2A74 /* CGRect+Extension.swift */,
 				048677161E5D2E42002E2A74 /* NSDate+Extension.swift */,
@@ -382,6 +388,8 @@
 				047D205E1E5FDBA30086BF58 /* Swift3Basics.swift in Sources */,
 				0486773F1E5D2E42002E2A74 /* ObjectMapper+Extension.swift in Sources */,
 				0486774F1E5D2E42002E2A74 /* WebView+NavigationDelegate.swift in Sources */,
+				049AE39D1E6524C800E9CB4C /* CacheItem.swift in Sources */,
+				049AE39F1E65268900E9CB4C /* DateFormatter+Extension.swift in Sources */,
 				048677311E5D2E42002E2A74 /* LocalStorage.swift in Sources */,
 				0486774C1E5D2E42002E2A74 /* WebViewController.swift in Sources */,
 				048677491E5D2E42002E2A74 /* LoadingIndicator.swift in Sources */,

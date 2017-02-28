@@ -23,7 +23,9 @@ public struct UDID {
         }
         
         let udid = UIDevice.current.identifierForVendor!.uuidString.replacingOccurrences(of: "-", with: "")
+        
         keychain.set(udid, forKey: "COMMON_UDID")
+        
         return udid
     }
 }

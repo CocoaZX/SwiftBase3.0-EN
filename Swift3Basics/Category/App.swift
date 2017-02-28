@@ -11,7 +11,7 @@ import Foundation
 public struct App {
     
     public enum RunMode {
-        case debug, test, release
+        case debug, release
     }
     
     public static var runMode: RunMode = .debug

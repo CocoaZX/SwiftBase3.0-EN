@@ -12,7 +12,7 @@ target :Swift3Basics do
   pod 'AlamofireObjectMapper’,’~> 4.0’
   pod 'AlamofireImage’,’~> 3.0’
 
-  pod 'SwiftyJSON', :git =>'https://github.com/acegreen/SwiftyJSON.git',:branch => 'swift3'
+  pod 'SwiftyJSON'#, :git =>'https://github.com/acegreen/SwiftyJSON.git',:branch => 'swift3'
   pod 'KeychainSwift’,’~> 7.0.0’
   pod 'ObjectMapper’,’~> 2.2.0’
   

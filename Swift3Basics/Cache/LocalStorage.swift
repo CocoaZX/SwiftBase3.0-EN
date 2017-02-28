@@ -11,6 +11,7 @@ import Foundation
 open class LocalStorage {
     
     fileprivate var defaults = UserDefaults.standard
+    
     fileprivate var autoCommit = true
     
     open func setObject(_ object: AnyObject?, forKey key: String) {

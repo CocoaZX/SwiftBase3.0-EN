@@ -57,7 +57,7 @@ extension NetworkManager {
         headers["User-Agent"] = WebView.userAgent
         
         let configuration = URLSessionConfiguration.default
-        configuration.timeoutIntervalForRequest = 30 // 网络超时时间
+        configuration.timeoutIntervalForRequest = 20 // 网络超时时间
         configuration.httpAdditionalHeaders = headers
         configuration.httpCookieStorage = sharedCookieStorage
         configuration.urlCache = Foundation.URLCache.shared

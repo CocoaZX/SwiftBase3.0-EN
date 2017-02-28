@@ -13,6 +13,7 @@ import Realm
 open class RealmCache: Cachable {
     
     open func value(forKey key: String) -> CacheItem? {
+        
         return CacheItem.em.object(primaryKey: key as AnyObject)
     }
     
@@ -21,6 +22,7 @@ open class RealmCache: Cachable {
     }
     
     open func string(forKey key: String) -> String? {
+        
         return value(forKey: key)?.value
     }
     
