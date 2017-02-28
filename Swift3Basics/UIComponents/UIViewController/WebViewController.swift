@@ -36,7 +36,7 @@ open class WebViewController: UIViewController {
     }
     
     open func load(_ request: URLRequest) {
-        webView.loadRequest(request)
+        _ = webView.loadRequest(request)
     }
     
     // MARK: - Navigation

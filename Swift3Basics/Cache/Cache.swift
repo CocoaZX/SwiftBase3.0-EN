@@ -33,33 +33,33 @@ public protocol Cachable {
 
 // MARK: - CacheManager
 
-class CacheManager {
+open class CacheManager {
     
     let cachable: Cachable
     
-    init(cachable: Cachable) {
+    public init(cachable: Cachable) {
         self.cachable = cachable
     }
     
     // MARK: - Methods
     
-    func object<T: Mappable>(forKey key: String) -> T? {
+    public func object<T: Mappable>(forKey key: String) -> T? {
         guard let content: String = cachable.string(forKey: key) else { return nil }
         return Mapper<T>().map(JSONString: content)
     }
     
-    func setObject<T: Mappable>(_ object: T, forKey key: String, expires: Double? = nil) {
+    public func setObject<T: Mappable>(_ object: T, forKey key: String, expires: Double? = nil) {
         guard let jsonString = Mapper<T>().toJSONString(object) else { return }
         cachable.setString(jsonString, forKey: key, expires: expires)
     }
     
-    func remove(forKey key: String) {
+    public func remove(forKey key: String) {
         cachable.remove(forKey: key)
     }
     
     // MARK: - Subscript
     
-    subscript(key: String) -> CacheItem? {
+    public subscript(key: String) -> CacheItem? {
         get {
             return cachable.value(forKey: key)
         }
@@ -71,7 +71,7 @@ class CacheManager {
         }
     }
     
-    subscript(key: String) -> String? {
+    public subscript(key: String) -> String? {
         get {
             return cachable.string(forKey: key)
         }
@@ -82,7 +82,7 @@ class CacheManager {
         }
     }
     
-    subscript(key: String) -> Int? {
+    public subscript(key: String) -> Int? {
         get {
             return cachable.string(forKey: key)?.integer
         }
@@ -93,7 +93,7 @@ class CacheManager {
         }
     }
     
-    subscript(key: String) -> Float? {
+    public subscript(key: String) -> Float? {
         get {
             return cachable.string(forKey: key)?.float
         }
@@ -104,7 +104,7 @@ class CacheManager {
         }
     }
     
-    subscript(key: String) -> Double? {
+    public subscript(key: String) -> Double? {
         get {
             return cachable.string(forKey: key)?.double
         }
@@ -115,7 +115,7 @@ class CacheManager {
         }
     }
     
-    subscript(key: String) -> Bool? {
+    public subscript(key: String) -> Bool? {
         get {
             return cachable.string(forKey: key)?.bool
         }

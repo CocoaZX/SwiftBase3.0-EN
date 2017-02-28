@@ -5,18 +5,17 @@ use_frameworks!
 
 target :Swift3Basics do
 
-  pod 'Realm’,’~> 2.4.0’
-  pod 'RealmSwift’,’~> 2.4.0’
+  pod 'Realm’
+  pod 'RealmSwift’
 
-  pod 'Alamofire' ,’~> 4.0’
-  pod 'AlamofireObjectMapper’,’~> 4.0’
-  pod 'AlamofireImage’,’~> 3.0’
-
-  pod 'SwiftyJSON'#, :git =>'https://github.com/acegreen/SwiftyJSON.git',:branch => 'swift3'
-  pod 'KeychainSwift’,’~> 7.0.0’
-  pod 'ObjectMapper’,’~> 2.2.0’
+  pod 'Alamofire'
+  pod 'AlamofireObjectMapper’
+  pod 'AlamofireImage’
+  pod 'SwiftyJSON'
+  pod 'KeychainSwift’
+  pod 'ObjectMapper’
   
-  pod 'ReachabilitySwift', '~> 3'
+  pod 'ReachabilitySwift'
 
 end
 
