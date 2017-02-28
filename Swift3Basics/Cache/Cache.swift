@@ -7,10 +7,6 @@
 //
 
 import Foundation
-
-import Realm
-import Realm.Private
-import RealmSwift
 import ObjectMapper
 
 // MARK: - Cachable

@@ -598,7 +598,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.hw.Swift3Basics;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_INCLUDE_PATHS = Cocoa/iphoneos;
+				SWIFT_INCLUDE_PATHS = CocoaPods/iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
@@ -622,7 +622,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.hw.Swift3Basics;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_INCLUDE_PATHS = Cocoa/iphoneos;
+				SWIFT_INCLUDE_PATHS = CocoaPods/iphoneos;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
