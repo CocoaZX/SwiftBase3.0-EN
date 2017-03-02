@@ -80,7 +80,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-s.source       = { :git => "https://github.com/hw3308/Swift3Basics.git", :tag => "#{s.version}"}
+  s.source       = { :git => "https://github.com/hw3308/Swift3Basics.git", :tag => "#{s.version}"}
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -108,7 +108,7 @@ s.source       = { :git => "https://github.com/hw3308/Swift3Basics.git", :tag =>
   #s.resource  = ""
   #s.resources = "Resources/*.png"
 
-  s.preserve_paths = "CocoaPods", "CocoaPods/**/*"
+  s.preserve_paths = 'CocoaPods/**/*'
 
 
   # ――― Project Linking ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -132,13 +132,13 @@ s.source       = { :git => "https://github.com/hw3308/Swift3Basics.git", :tag =>
 
   # s.requires_arc = true
 
-  # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
-  # s.dependency "JSONKit", "~> 1.4"
+  s.xcconfig = { 
+	'SWIFT_INCLUDE_PATHS' => '$(SRCROOT)/CocoaPods/iphoneos' , 
+	'SWIFT_INCLUDE_PATHS' => '$(SRCROOT)/CocoaPods/iphonesimulator' }
 
-  s.pod_target_xcconfig = {
-    "SWIFT_INCLUDE_PATHS[sdk=iphoneos*]" => "$(SRCROOT)/Swift3Basics/CocoaPods/iphoneos",
-    'SWIFT_INCLUDE_PATHS[sdk=iphonesimulator*]'  => '$(SRCROOT)/Swift3Basics/CocoaPods/iphonesimulator'
-  }
+  s.pod_target_xcconfig = { 
+	'SWIFT_INCLUDE_PATHS[sdk=iphoneos*]' 		=> '$(PODS_ROOT)/Swift3Basics/CocoaPods/iphoneos',
+	'SWIFT_INCLUDE_PATHS[sdk=iphonesimulator*]'  	=> '$(PODS_ROOT)/Swift3Basics/CocoaPods/iphonesimulator' }
 
  s.dependency 'SwiftyJSON'
  s.dependency 'KeychainSwift'
