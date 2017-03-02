@@ -80,7 +80,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/hw3308/Swift3Basics.git", :tag => "#{s.version}"}
+  s.source = { :git => "https://github.com/hw3308/Swift3Basics.git", :tag => "#{s.version}"}
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -91,7 +91,7 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "Swift3Basics", "Swift3Basics/**/*.{h,m,c,mm,swift}", "Cocoapods","Cocoapods/**/*"
+  s.source_files  =  "Swift3Basics/*.{h,m,c,mm,swift}"
   #s.exclude_files = "Classes/Exclude"
 
   #s.public_header_files = "Classes/**/*.h"
@@ -118,7 +118,7 @@ Pod::Spec.new do |s|
   #
 
   # s.framework  = "SwiftBasics"
-  # s.frameworks = "SomeFramework", "AnotherFramework"
+  s.frameworks = "UIKit", "CommonCrypto","Foundation"
 
   # s.library   = "iconv"
   # s.libraries = "iconv", "xml2"
