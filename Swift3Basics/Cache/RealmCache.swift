@@ -12,21 +12,25 @@ import Realm
 
 open class RealmCache: Cachable {
     
-    open func value(forKey key: String) -> CacheItem? {
+    public init(){
+        
+    }
+    
+    public func value(forKey key: String) -> CacheItem? {
         
         return CacheItem.em.object(primaryKey: key as AnyObject)
     }
     
-    open func setValue(_ value: CacheItem) {
+    public func setValue(_ value: CacheItem) {
         CacheItem.em.save(value)
     }
     
-    open func string(forKey key: String) -> String? {
+    public func string(forKey key: String) -> String? {
         
         return value(forKey: key)?.value
     }
     
-    open func setString(_ value: String, forKey key: String, expires: Double?) {
+    public func setString(_ value: String, forKey key: String, expires: Double?) {
         let item = CacheItem()
         item.key = key
         item.value = value
@@ -34,12 +38,12 @@ open class RealmCache: Cachable {
         setValue(item)
     }
     
-    open func remove(forKey key: String) {
+    public func remove(forKey key: String) {
         guard let item = value(forKey: key) else { return }
         CacheItem.em.delete(item)
     }
     
-    open func clear() {
+    public func clear() {
         CacheItem.em.deleteAll()
     }
 }
