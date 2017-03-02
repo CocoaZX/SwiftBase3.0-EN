@@ -91,7 +91,7 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "Swift3Basics", "Swift3Basics/**/*.{h,m,c,mm,swift}"
+  s.source_files  = "Swift3Basics", "Swift3Basics/**/*.{h,m,c,mm,swift}", "Cocoapods","Cocoapods/**/*"
   #s.exclude_files = "Classes/Exclude"
 
   #s.public_header_files = "Classes/**/*.h"
@@ -130,7 +130,7 @@ Pod::Spec.new do |s|
   #  where they will only apply to your library. If you depend on other Podspecs
   #  you can include multiple dependencies to ensure it works.
 
-  # s.requires_arc = true
+  s.requires_arc = true
 
 #  s.xcconfig = { 
 #	'SWIFT_INCLUDE_PATHS' => '$(PODS_ROOT)/CocoaPods/iphoneos' , 
