@@ -132,9 +132,9 @@ Pod::Spec.new do |s|
 
   # s.requires_arc = true
 
-  s.xcconfig = { 
-	'SWIFT_INCLUDE_PATHS' => '$(SRCROOT)/CocoaPods/iphoneos' , 
-	'SWIFT_INCLUDE_PATHS' => '$(SRCROOT)/CocoaPods/iphonesimulator' }
+#  s.xcconfig = { 
+	'SWIFT_INCLUDE_PATHS' => '$(PODS_ROOT)/CocoaPods/iphoneos' , 
+	'SWIFT_INCLUDE_PATHS' => '$(PODS_ROOT)/CocoaPods/iphonesimulator' }
 
   s.pod_target_xcconfig = { 
 	'SWIFT_INCLUDE_PATHS[sdk=iphoneos*]' 		=> '$(PODS_ROOT)/Swift3Basics/CocoaPods/iphoneos',
