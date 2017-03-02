@@ -1,7 +1,10 @@
 
 platform :ios, ‘9.0’
+
 use_frameworks!
+
 target :Swift3Basics do
+    
   pod 'Realm’
   pod 'RealmSwift’
   pod 'Alamofire'
