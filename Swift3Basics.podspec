@@ -91,7 +91,7 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  =  "Swift3Basics/*.{h,m,c,mm,swift}"
+  s.source_files  =  "Swift3Basics","Swift3Basics/*.{h,m,c,mm,swift}"
   #s.exclude_files = "Classes/Exclude"
 
   #s.public_header_files = "Classes/**/*.h"
@@ -131,10 +131,6 @@ Pod::Spec.new do |s|
   #  you can include multiple dependencies to ensure it works.
 
   s.requires_arc = true
-
-#  s.xcconfig = { 
-#	'SWIFT_INCLUDE_PATHS' => '$(PODS_ROOT)/CocoaPods/iphoneos' , 
-#	'SWIFT_INCLUDE_PATHS' => '$(PODS_ROOT)/CocoaPods/iphonesimulator' }
 
   s.pod_target_xcconfig = { 
 	'SWIFT_INCLUDE_PATHS[sdk=iphoneos*]' 		=> '$(PODS_ROOT)/Swift3Basics/CocoaPods/iphoneos',
