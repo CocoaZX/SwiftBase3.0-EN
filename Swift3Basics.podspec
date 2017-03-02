@@ -91,7 +91,7 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  =  "Swift3Basics","Swift3Basics/*.{h,m,c,mm,swift}"
+  s.source_files  =  "Swift3Basics","Swift3Basics/**/*.{h,m,c,mm,swift}"
   #s.exclude_files = "Classes/Exclude"
 
   #s.public_header_files = "Classes/**/*.h"
@@ -108,7 +108,7 @@ Pod::Spec.new do |s|
   #s.resource  = ""
   #s.resources = "Resources/*.png"
 
-  s.preserve_paths = 'CocoaPods/**/*'
+  s.preserve_paths = "CocoaPods" , "CocoaPods/**/*"
 
 
   # ――― Project Linking ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
