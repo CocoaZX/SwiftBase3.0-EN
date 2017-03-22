@@ -12,13 +12,24 @@ import Realm
 
 open class RealmCache: Cachable {
     
+    let realm:Realm
+    
+    init(realm:Realm){
+        self.realm = realm
+    }
+    
     open func value(forKey key: String) -> CacheItem? {
         
-        return CacheItem.em.object(primaryKey: key as AnyObject)
+        if let item = realm.object(ofType: CacheItem.self, forPrimaryKey: key as AnyObject) , item.isValid {
+            return item
+        }
+        return nil
     }
     
     open func setValue(_ value: CacheItem) {
-        CacheItem.em.save(value)
+        try! realm.write {
+            realm.add(value, update: true)
+        }
     }
     
     open func string(forKey key: String) -> String? {
@@ -36,10 +47,22 @@ open class RealmCache: Cachable {
     
     open func remove(forKey key: String) {
         guard let item = value(forKey: key) else { return }
-        CacheItem.em.delete(item)
+        try! realm.write {
+            realm.delete(item)
+            Log.info("RealmCache: remove cache \"\(key)\"")
+        }
     }
     
     open func clear() {
-        CacheItem.em.deleteAll()
+        do {
+            if !realm.isEmpty {
+                try realm.write {
+                    realm.delete(realm.objects(CacheItem.self))
+                }
+            }
+            Log.info("RealmCache: clear")
+        } catch let error as NSError  {
+            Log.error("RealmCache: clear. \(error)")
+        }
     }
 }
