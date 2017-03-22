@@ -67,57 +67,57 @@ open class CacheManager {
         }
     }
     
-    public subscript(key: String) -> String? {
+    public subscript(stringkey: String) -> String? {
         get {
-            return cachable.string(forKey: key)
+            return cachable.string(forKey: stringkey)
         }
         set {
             if let string = newValue {
-                cachable.setString(string, forKey: key, expires: nil)
+                cachable.setString(string, forKey: stringkey, expires: nil)
             }
         }
     }
     
-    public subscript(key: String) -> Int? {
+    public subscript(intkey: String) -> Int? {
         get {
-            return cachable.string(forKey: key)?.integer
+            return cachable.string(forKey: intkey)?.integer
         }
         set {
             if let string = newValue?.string {
-                cachable.setString(string, forKey: key, expires: nil)
+                cachable.setString(string, forKey: intkey, expires: nil)
             }
         }
     }
     
-    public subscript(key: String) -> Float? {
+    public subscript(floatkey: String) -> Float? {
         get {
-            return cachable.string(forKey: key)?.float
+            return cachable.string(forKey: floatkey)?.float
         }
         set {
             if let string = newValue?.string {
-                cachable.setString(string, forKey: key, expires: nil)
+                cachable.setString(string, forKey: floatkey, expires: nil)
             }
         }
     }
     
-    public subscript(key: String) -> Double? {
+    public subscript(doublekey: String) -> Double? {
         get {
-            return cachable.string(forKey: key)?.double
+            return cachable.string(forKey: doublekey)?.double
         }
         set {
             if let string = newValue?.string {
-                cachable.setString(string, forKey: key, expires: nil)
+                cachable.setString(string, forKey: doublekey, expires: nil)
             }
         }
     }
     
-    public subscript(key: String) -> Bool? {
+    public subscript(boolkey: String) -> Bool? {
         get {
-            return cachable.string(forKey: key)?.bool
+            return cachable.string(forKey: boolkey)?.bool
         }
         set {
             if let string = newValue?.string {
-                cachable.setString(string, forKey: key, expires: nil)
+                cachable.setString(string, forKey: boolkey, expires: nil)
             }
         }
     }
