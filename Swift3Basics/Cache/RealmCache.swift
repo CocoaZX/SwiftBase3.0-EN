@@ -14,7 +14,7 @@ open class RealmCache: Cachable {
     
     let realm:Realm
     
-    init(realm:Realm){
+    public init(realm:Realm){
         self.realm = realm
     }
     
