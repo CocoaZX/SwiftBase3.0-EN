@@ -17,7 +17,7 @@ public struct Notifications {
     open class Proxy {
         fileprivate let name: String
         
-        init(name: String) {
+         public init(name: String) {
             self.name = name
         }
         
