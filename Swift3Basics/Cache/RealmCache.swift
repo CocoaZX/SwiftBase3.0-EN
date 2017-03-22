@@ -18,7 +18,7 @@ open class RealmCache: Cachable {
         self.realm = realm
     }
     
-    open func value(forKey key: String) -> CacheItem? {
+    public func value(forKey key: String) -> CacheItem? {
         
         if let item = realm.object(ofType: CacheItem.self, forPrimaryKey: key as AnyObject) , item.isValid {
             return item
@@ -31,13 +31,12 @@ open class RealmCache: Cachable {
             realm.add(value, update: true)
         }
     }
-    
-    open func string(forKey key: String) -> String? {
+    public func string(forKey key: String) -> String? {
         
         return value(forKey: key)?.value
     }
     
-    open func setString(_ value: String, forKey key: String, expires: Double?) {
+    public func setString(_ value: String, forKey key: String, expires: Double?) {
         let item = CacheItem()
         item.key = key
         item.value = value
@@ -45,7 +44,7 @@ open class RealmCache: Cachable {
         setValue(item)
     }
     
-    open func remove(forKey key: String) {
+    public func remove(forKey key: String) {
         guard let item = value(forKey: key) else { return }
         try! realm.write {
             realm.delete(item)

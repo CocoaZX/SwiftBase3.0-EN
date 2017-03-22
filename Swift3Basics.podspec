@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
 
   s.name         = "Swift3Basics"
   s.version      = "0.0.1"
-  s.summary      = "swift3.0 base"
+  s.summary      = "Swift 3.0"
 
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
@@ -25,7 +25,7 @@ Pod::Spec.new do |s|
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   s.description  = <<-DESC
-		some swift3 base.
+		 Swift 3.0 base
                    DESC
 
   s.homepage     = "https://github.com/hw3308/Swift3Basics"
@@ -40,7 +40,7 @@ Pod::Spec.new do |s|
   #
 
   s.license      = "MIT"
-  s.license      = { :type => "MIT", :file => "LICENSE" }
+  #s.license      = { :type => "MIT", :file => "LICENSE" }
 
 
   # ――― Author Metadata  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -54,9 +54,9 @@ Pod::Spec.new do |s|
   #
 
   s.author             = { "hw" => "hw3308@sina.com" }
-  # Or just: s.author    = ""
-  # s.authors            = { "" => "" }
-  # s.social_media_url   = "http://twitter.com/"
+  # Or just: s.author    = "houwei"
+  # s.authors            = { "houwei" => "houwei" }
+  # s.social_media_url   = "http://twitter.com/houwei"
 
   # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -68,7 +68,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios, "9.0"
 
   #  When using multiple platforms
-  # s.ios.deployment_target = "5.0"
+  s.ios.deployment_target = "9.0"
   # s.osx.deployment_target = "10.7"
   # s.watchos.deployment_target = "2.0"
   # s.tvos.deployment_target = "9.0"
@@ -80,7 +80,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = {:git => "https://github.com/hw3308/Swift3Basics.git", :tag => "0.0.1"}
+  s.source = { :git => "https://github.com/hw3308/Swift3Basics.git", :tag => "#{s.version}"}
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -91,10 +91,10 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "Swift3Basics/", "Swift3Basics/Classes/**/*.{h,m,swift}"
-  s.exclude_files = "Classes/Exclude"
+  s.source_files  =  "Swift3Basics","Swift3Basics/**/*.{h,m,c,mm,swift}"
+  #s.exclude_files = "Classes/Exclude"
 
-  # s.public_header_files = "Classes/**/*.h"
+  #s.public_header_files = "Classes/**/*.h"
 
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -105,10 +105,10 @@ Pod::Spec.new do |s|
   #  non-essential files like tests, examples and documentation.
   #
 
-  # s.resource  = "icon.png"
-  # s.resources = "Resources/*.png"
+  #s.resource  = ""
+  #s.resources = "Resources/*.png"
 
-  # s.preserve_paths = "FilesToSave", "MoreFilesToSave"
+  s.preserve_paths = "CocoaPods" , "CocoaPods/**/*"
 
 
   # ――― Project Linking ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -117,8 +117,8 @@ Pod::Spec.new do |s|
   #  the lib prefix of their name.
   #
 
-  # s.framework  = "SomeFramework"
-  # s.frameworks = "SomeFramework", "AnotherFramework"
+  # s.framework  = "SwiftBasics"
+  # s.frameworks = "UIKit", "Foundation"
 
   # s.library   = "iconv"
   # s.libraries = "iconv", "xml2"
@@ -132,7 +132,18 @@ Pod::Spec.new do |s|
 
   s.requires_arc = true
 
-  # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
-  # s.dependency "JSONKit", "~> 1.4"
+  s.pod_target_xcconfig = { 
+	'SWIFT_INCLUDE_PATHS[sdk=iphoneos*]' 		=> '$(PODS_ROOT)/Swift3Basics/CocoaPods/iphoneos',
+	'SWIFT_INCLUDE_PATHS[sdk=iphonesimulator*]'  	=> '$(PODS_ROOT)/Swift3Basics/CocoaPods/iphonesimulator' }
+
+ s.dependency 'SwiftyJSON'
+ s.dependency 'KeychainSwift'
+ s.dependency 'ObjectMapper'
+ s.dependency 'RealmSwift'
+ s.dependency 'Realm'
+ s.dependency 'Alamofire'
+ s.dependency 'AlamofireObjectMapper'
+ s.dependency 'AlamofireImage'
+ s.dependency 'ReachabilitySwift'
 
 end
