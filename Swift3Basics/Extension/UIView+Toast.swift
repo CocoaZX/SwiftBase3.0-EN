@@ -593,7 +593,7 @@ public struct ToastStyle {
     /**
      The background color. Default is `UIColor.blackColor()` at 80% opacity.
     */
-    public var backgroundColor = UIColor.black.withAlphaComponent(0.8)
+    public var backgroundColor = UIColor.black.withAlphaComponent(0.5)
 
     /**
      The title color. Default is `UIColor.whiteColor()`.
@@ -769,6 +769,6 @@ open class ToastManager {
      `showToast` methods that don't require an explicit position.
      Default is `ToastPosition.Bottom`.
      */
-    open var position = ToastPosition.bottom
+    open var position = ToastPosition.center
 
 }
