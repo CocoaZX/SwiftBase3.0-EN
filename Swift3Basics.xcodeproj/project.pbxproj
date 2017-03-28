@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04791C4E1E8A381400F0C4A8 /* UIDevice+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04791C4D1E8A381400F0C4A8 /* UIDevice+Extention.swift */; };
 		048676A91E5D2DF1002E2A74 /* Swift3Basics.h in Headers */ = {isa = PBXBuildFile; fileRef = 048676A71E5D2DF1002E2A74 /* Swift3Basics.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		048677301E5D2E42002E2A74 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048677051E5D2E42002E2A74 /* Cache.swift */; };
 		048677311E5D2E42002E2A74 /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048677061E5D2E42002E2A74 /* LocalStorage.swift */; };
@@ -48,6 +49,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		04791C4D1E8A381400F0C4A8 /* UIDevice+Extention.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIDevice+Extention.swift"; sourceTree = "<group>"; };
 		048676A41E5D2DF1002E2A74 /* Swift3Basics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Swift3Basics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		048676A71E5D2DF1002E2A74 /* Swift3Basics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Swift3Basics.h; sourceTree = "<group>"; };
 		048676A81E5D2DF1002E2A74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 				0486771A1E5D2E42002E2A74 /* UIImage+Extension.swift */,
 				0486771B1E5D2E42002E2A74 /* UIView+Toast.swift */,
 				0486771C1E5D2E42002E2A74 /* UIViewController+Extension.swift */,
+				04791C4D1E8A381400F0C4A8 /* UIDevice+Extention.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -398,6 +401,7 @@
 				0486773C1E5D2E42002E2A74 /* CALayer+Extension.swift in Sources */,
 				048677531E5D2E42002E2A74 /* WebView.swift in Sources */,
 				048677451E5D2E42002E2A74 /* MIMEType.swift in Sources */,
+				04791C4E1E8A381400F0C4A8 /* UIDevice+Extention.swift in Sources */,
 				048677521E5D2E42002E2A74 /* WebView+UserContentController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
