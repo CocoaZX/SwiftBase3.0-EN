@@ -15,12 +15,6 @@ public func delay(_ seconds: UInt64, task: @escaping () -> Void) {
 
 /// 异步执行代码块（先非主线程执行，再返回主线程执行）
 public func async(_ backgroundTask: @escaping () -> AnyObject!, mainTask: @escaping (AnyObject?) -> Void) {
-//    DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.default).async {
-//        let result = backgroundTask()
-//        DispatchQueue.main.sync {
-//            mainTask(result)
-//        }
-//    }
     DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async {
         let result = backgroundTask()
         DispatchQueue.main.sync {
@@ -36,7 +30,7 @@ public func async(_ mainTask: @escaping () -> Void) {
 
 /// 顺序执行代码块（在队列中执行）
 public func sync(_ task: () -> Void) {
-    DispatchQueue(label: "com.catorv.LockQueue", attributes: []).sync(execute: task)
+    DispatchQueue(label: "com.hw.LockQueue", attributes: []).sync(execute: task)
 }
 
 public func alert(_ message: String, title: String! = nil, completion: (() -> Void)? = nil) {
@@ -88,17 +82,26 @@ public func toast(_ message: String?, in view: UIView? = nil, duration: TimeInte
     view.makeToast(message, duration: duration ?? manager.duration, position: position ?? manager.position, title: title, image: image, style: style, completion: completion)
 }
 
-public func spin(in view: UIView, at position: ToastPosition = .center) {
-    view.makeToastActivity(position)
+public func spin(in view: UIView?, at position: ToastPosition = .center) {
+    guard let _ = view else {
+        return
+    }
+    view?.makeToastActivity(position)
 }
 
-public func spin(in view: UIView, at position: CGPoint) {
-    view.makeToastActivity(position)
+public func spin(in view: UIView?, at position: CGPoint) {
+    guard let _ = view else {
+        return
+    }
+    view?.makeToastActivity(position)
 }
 
-public func spin(in view: UIView, stop: Bool) {
+public func spin(in view: UIView?, stop: Bool) {
+    guard let _ = view else {
+        return
+    }
     if stop {
-        view.hideToastActivity()
+        view?.hideToastActivity()
     } else {
         spin(in: view)
     }
