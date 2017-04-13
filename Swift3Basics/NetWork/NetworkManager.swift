@@ -28,7 +28,10 @@ open class NetworkManager {
         let configuration = NetworkManager.defaultSessionConfiguration
         configuration.requestCachePolicy = .returnCacheDataElseLoad
         let manager = Alamofire.SessionManager(configuration: configuration, serverTrustPolicyManager: serverTrustPolicyManager)
-        let sharedImageDownloader = ImageDownloader(sessionManager: manager)
+         //设置图片缓存
+        let imageCache: ImageRequestCache = AutoPurgingImageCache()
+        
+        let sharedImageDownloader = ImageDownloader(sessionManager: manager,imageCache:imageCache)
         UIImageView.af_sharedImageDownloader = sharedImageDownloader
         UIButton.af_sharedImageDownloader = sharedImageDownloader
         
