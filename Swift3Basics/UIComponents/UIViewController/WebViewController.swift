@@ -11,7 +11,7 @@ import Foundation
 open class WebViewController: UIViewController {
     @IBOutlet open var webView: WebView!
     
-    fileprivate var URL: Foundation.URL!
+    fileprivate var url:URL!
     
     override open func viewDidLoad() {
         super.viewDidLoad()
@@ -21,17 +21,17 @@ open class WebViewController: UIViewController {
             view.addSubview(webView!)
         }
         
-        if let URL = URL {
-            load(from: URL)
-            self.URL = nil
+        if let _ = url {
+            load(from: url)
+            self.url = nil
         }
     }
     
-    open func load(from URL: Foundation.URL) {
+    open func load(from url:URL) {
         if webView != nil {
-            load(URLRequest(url: URL))
+            load(URLRequest(url: url))
         } else {
-            self.URL = URL
+            self.url = url
         }
     }
     
@@ -66,13 +66,13 @@ open class WebViewController: UIViewController {
 extension WebViewController {
     open class func open(urlString: String?) {
         guard let urlString = urlString else { return }
-        open(URL: Foundation.URL(string: urlString))
+        open(url: URL(string: urlString))
     }
     
-    open class func open(URL: Foundation.URL?) {
-        guard let URL = URL else { return }
+    open class func open(url: URL?) {
+        guard let _ = url else { return }
         let controller = WebViewController()
-        controller.load(from: URL)
+        controller.load(from: url!)
         controller.hidesBottomBarWhenPushed = true
         UIViewController.showViewController(controller, animated: true)
     }
