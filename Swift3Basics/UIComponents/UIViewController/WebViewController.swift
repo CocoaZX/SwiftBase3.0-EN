@@ -64,12 +64,12 @@ open class WebViewController: UIViewController {
 }
 
 extension WebViewController {
-    public class func open(urlString: String?) {
+    open class func open(urlString: String?) {
         guard let urlString = urlString else { return }
         open(URL: Foundation.URL(string: urlString))
     }
     
-    public class func open(URL: Foundation.URL?) {
+    open class func open(URL: Foundation.URL?) {
         guard let URL = URL else { return }
         let controller = WebViewController()
         controller.load(from: URL)
