@@ -13,15 +13,15 @@ import ObjectMapper
 
 public protocol Cachable {
     
-    func value(forKey key: CacheManager.Key) -> CacheItem?
+    func value(forKey key: String) -> CacheItem?
     
     func setValue(_ value: CacheItem)
     
-    func string(forKey key: CacheManager.Key) -> String?
+    func string(forKey key: String) -> String?
     
-    func setString(_ value: String, forKey key: CacheManager.Key, expires: Double?)
+    func setString(_ value: String, forKey key: String, expires: Double?)
     
-    func remove(forKey key: CacheManager.Key)
+    func remove(forKey key: String)
     
     func clear()
 }
@@ -31,14 +31,6 @@ public protocol Cachable {
 
 open class CacheManager {
     
-    public enum Key: String {
-        
-        case User = "_User"
-        
-        func suffixWith(_ suffix: AnyObject) -> String {
-            return "\(self.rawValue)_\(suffix)"
-        }
-    }
     let cachable: Cachable
     
     
@@ -48,35 +40,35 @@ open class CacheManager {
     
     // MARK: - Methods
     
-    public func object<T: Mappable>(forKey key: Key) -> T? {
+    public func object<T: Mappable>(forKey key: String) -> T? {
         guard let content: String = cachable.string(forKey: key) else { return nil }
         return Mapper<T>().map(JSONString: content)
     }
     
-    public func setObject<T: Mappable>(_ object: T, forKey key: Key, expires: Double? = nil) {
+    public func setObject<T: Mappable>(_ object: T, forKey key: String, expires: Double? = nil) {
         guard let jsonString = Mapper<T>().toJSONString(object) else { return }
         cachable.setString(jsonString, forKey: key, expires: expires)
     }
     
-    public func remove(forKey key: Key) {
+    public func remove(forKey key: String) {
         cachable.remove(forKey: key)
     }
     
     // MARK: - Subscript
     
-    public subscript(key: Key) -> CacheItem? {
+    public subscript(key: String) -> CacheItem? {
         get {
             return cachable.value(forKey: key)
         }
         set {
             if let value = newValue {
-                value.key = key.rawValue
+                value.key = key
                 cachable.setValue(value)
             }
         }
     }
     
-    public subscript(stringkey: Key) -> String? {
+    public subscript(stringkey: String) -> String? {
         get {
             return cachable.string(forKey: stringkey)
         }
@@ -87,7 +79,7 @@ open class CacheManager {
         }
     }
     
-    public subscript(intkey: Key) -> Int? {
+    public subscript(intkey: String) -> Int? {
         get {
             return cachable.string(forKey: intkey)?.integer
         }
@@ -98,7 +90,7 @@ open class CacheManager {
         }
     }
     
-    public subscript(floatkey: Key) -> Float? {
+    public subscript(floatkey: String) -> Float? {
         get {
             return cachable.string(forKey: floatkey)?.float
         }
@@ -109,7 +101,7 @@ open class CacheManager {
         }
     }
     
-    public subscript(doublekey: Key) -> Double? {
+    public subscript(doublekey: String) -> Double? {
         get {
             return cachable.string(forKey: doublekey)?.double
         }
@@ -120,7 +112,7 @@ open class CacheManager {
         }
     }
     
-    public subscript(boolkey: Key) -> Bool? {
+    public subscript(boolkey: String) -> Bool? {
         get {
             return cachable.string(forKey: boolkey)?.bool
         }
