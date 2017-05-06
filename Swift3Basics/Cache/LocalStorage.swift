@@ -14,7 +14,7 @@ open class LocalStorage {
     
     fileprivate var autoCommit = true
     
-    open func setObject(_ object: AnyObject?, forKey key: String) {
+    open func setObject(_ object: Any?, forKey key: String) {
         if object == nil {
             defaults.removeObject(forKey: key)
             return
@@ -26,7 +26,7 @@ open class LocalStorage {
         }
     }
     
-    open func object(forKey key: String) -> AnyObject? {
+    open func object(forKey key: String) -> Any? {
         return defaults.object(forKey: key) as AnyObject?
     }
     
@@ -54,11 +54,11 @@ open class LocalStorage {
         }
     }
     
-    open func array(forKey key: String) -> [AnyObject]? {
+    open func array(forKey key: String) -> [Any]? {
         return defaults.array(forKey: key) as [AnyObject]?
     }
     
-    open func dictionary(forKey key: String) -> [String: AnyObject]? {
+    open func dictionary(forKey key: String) -> [String: Any]? {
         return defaults.dictionary(forKey: key) as [String : AnyObject]?
     }
     
