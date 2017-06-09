@@ -22,7 +22,7 @@ public struct Notifications {
         }
         
         open func post(_ object: AnyObject? = nil, userInfo: [String: AnyObject]? = nil) {
-            Log.info("@N>\(name) object=\(object) userInfo=\(userInfo)")
+            Log.info("@N>\(name) object=\(String(describing: object)) userInfo=\(String(describing: userInfo))")
             async {
                 notificationCenter.post(name: Notification.Name(rawValue: self.name), object: object, userInfo: userInfo)
             }

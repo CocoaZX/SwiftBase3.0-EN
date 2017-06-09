@@ -22,7 +22,7 @@ open class WebView: UIView {
             _userAgent = UIWebView().stringByEvaluatingJavaScript(from: "navigator.userAgent") ?? ""
         }
         let netType = Reachability()?.currentReachabilityString
-        let ua = "\(_userAgent) Aha/\(App.version) NetType/\(netType) Language/\(App.lang)"
+        let ua = "\(_userAgent) Aha/\(App.version) NetType/\(String(describing: netType)) Language/\(App.lang)"
         UserDefaults.standard.register(defaults: ["UserAgent": ua])
         return ua
     }
