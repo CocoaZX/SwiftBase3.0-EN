@@ -25,7 +25,7 @@ extension WebView: WKNavigationDelegate {
         } else {
             decisionHandler(.allow)
         }
-    }
+    }//#1
     
     public func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
         if navigationDelegate != nil //&& navigationDelegate!.responds(to: #selector(WKNavigationDelegate.webView(_:decidePolicyFor:decisionHandler:)))
@@ -34,7 +34,7 @@ extension WebView: WKNavigationDelegate {
         } else {
             decisionHandler(.allow)
         }
-    }
+    }//#2
     
     public func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
         Log.info("webview: \(webView.url!.absoluteString)")
@@ -43,30 +43,30 @@ extension WebView: WKNavigationDelegate {
             loadingProgressBar.progress = 0.1
         }
         navigationDelegate?.webView?(webView, didStartProvisionalNavigation: navigation)
-    }
+    }//#3
     
     public func webView(_ webView: WKWebView, didReceiveServerRedirectForProvisionalNavigation navigation: WKNavigation!) {
         navigationDelegate?.webView?(webView, didReceiveServerRedirectForProvisionalNavigation: navigation)
-    }
+    }//#4
     
     public func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
         Log.error("webview didFailProvisionalNavigation:\(error)")
         navigationDelegate?.webView?(webView, didFailProvisionalNavigation: navigation, withError: error)
-    }
+    }//#5
+    
+    public func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
+        navigationDelegate?.webView?(webView, didCommit: navigation)
+    }//6
     
     public func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         loadingProgressBar.isHidden = true
         loadingProgressBar.progress = 1
         navigationDelegate?.webView?(webView, didFinish: navigation!)
-    }
-    
-    public func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
-        navigationDelegate?.webView?(webView, didCommit: navigation)
-    }
+    }//7
     
     public func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
         navigationDelegate?.webView?(webView, didFail: navigation, withError: error)
-    }
+    }//8
     
     public func webView(_ webView: WKWebView, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
         if navigationDelegate != nil && navigationDelegate!.responds(to: #selector(WKNavigationDelegate.webView(_:didReceive:completionHandler:))) {
@@ -109,10 +109,20 @@ extension WebView: WKNavigationDelegate {
                 completionHandler(.cancelAuthenticationChallenge, nil)
             }
         }
-    }
+    }//9
     
     @available(iOS 9.0, *)
     public func webViewWebContentProcessDidTerminate(_ webView: WKWebView) {
         navigationDelegate?.webViewWebContentProcessDidTerminate?(webView)
+    }//10
+    
+    @available(iOS 10.0, *)
+    public func webView(_ webView: WKWebView, shouldPreviewElement elementInfo: WKPreviewElementInfo) -> Bool {
+        return true
     }
+    
+    public func webView(_ webView: WKWebView, commitPreviewingViewController previewingViewController: UIViewController) {
+    
+    }
+    
 }

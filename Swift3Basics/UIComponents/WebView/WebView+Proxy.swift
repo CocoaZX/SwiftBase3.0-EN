@@ -25,7 +25,7 @@ extension WebView {
     public var loading: Bool {
         return webView.isLoading
     }
-    public var URL: Foundation.URL? {
+    public var url: URL? {
         return webView.url
     }
     
