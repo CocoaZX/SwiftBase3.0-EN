@@ -13,8 +13,8 @@ import ReachabilitySwift
 open class SwiftURLCache: URLCache {
     
     open static var cacheFolder = "URLCache" // The folder in the Documents folder where cached files will be saved
-    open static var memoryCapacity = 16 * 1024 * 1024 // The maximum memory size that will be cached
-    open static var diskCapacity = 256 * 1024 * 1024 // The maximum file size that will be cached
+    open static var memoryCapacity:Int = 16 * 1024 * 1024 // The maximum memory size that will be cached
+    open static var diskCapacity:Int = 256 * 1024 * 1024 // The maximum file size that will be cached
     open static var filter: (_ request: URLRequest) -> Bool = { _ in return true }
     
     fileprivate static var cacheDirectory: String!
