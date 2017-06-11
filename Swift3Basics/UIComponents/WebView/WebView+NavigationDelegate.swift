@@ -116,13 +116,15 @@ extension WebView: WKNavigationDelegate {
         navigationDelegate?.webViewWebContentProcessDidTerminate?(webView)
     }//10
     
+    
+    
     @available(iOS 10.0, *)
     public func webView(_ webView: WKWebView, shouldPreviewElement elementInfo: WKPreviewElementInfo) -> Bool {
         return true
     }
     
     public func webView(_ webView: WKWebView, commitPreviewingViewController previewingViewController: UIViewController) {
-    
+
     }
     
 }
