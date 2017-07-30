@@ -8,7 +8,7 @@
 
 import Foundation
 import Alamofire
-import AlamofireImage
+import Kingfisher
 
 open class NetworkManager {
     open static var defaultManager: Alamofire.SessionManager!
@@ -27,13 +27,16 @@ open class NetworkManager {
         // 初始化图片下载器
         let configuration = NetworkManager.defaultSessionConfiguration
         configuration.requestCachePolicy = .returnCacheDataElseLoad
-        let manager = Alamofire.SessionManager(configuration: configuration, serverTrustPolicyManager: serverTrustPolicyManager)
+//        let manager = Alamofire.SessionManager(configuration: configuration, serverTrustPolicyManager: serverTrustPolicyManager)
          //设置图片缓存
-        let imageCache: ImageRequestCache = AutoPurgingImageCache()
+        let downloader = KingfisherManager.shared.downloader
+        downloader.downloadTimeout = 5.0
         
-        let sharedImageDownloader = ImageDownloader(sessionManager: manager,imageCache:imageCache)
-        UIImageView.af_sharedImageDownloader = sharedImageDownloader
-        UIButton.af_sharedImageDownloader = sharedImageDownloader
+        let cache = KingfisherManager.shared.cache
+        cache.maxDiskCacheSize = 100 * 1024 * 1024
+        cache.maxCachePeriodInSecond = 60 * 60 * 24 * 7
+        
+        downloader.sessionConfiguration = configuration
         
         // 初始化默认网络请求
         NetworkManager.defaultManager = Alamofire.SessionManager(
