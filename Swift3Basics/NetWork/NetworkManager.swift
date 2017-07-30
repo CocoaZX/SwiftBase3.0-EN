@@ -35,6 +35,7 @@ open class NetworkManager {
         let cache = KingfisherManager.shared.cache
         cache.maxDiskCacheSize = 100 * 1024 * 1024
         cache.maxCachePeriodInSecond = 60 * 60 * 24 * 7
+        cache.cleanExpiredDiskCache()
         
         downloader.sessionConfiguration = configuration
         
