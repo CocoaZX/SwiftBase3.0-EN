@@ -6,18 +6,12 @@ target :Swift3Basics do
     
   pod 'Realm'
   pod 'RealmSwift'
-  
   pod 'Alamofire'
-  #图片加载
-  pod 'Kingfisher'
-  
   pod 'SwiftyJSON'
-  
   pod 'KeychainSwift'
-  
   pod 'ObjectMapper'
-  
   pod 'ReachabilitySwift'
+  pod 'Kingfisher', '~> 3.10.4'
 
 end
 
