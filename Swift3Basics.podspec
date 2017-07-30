@@ -143,7 +143,7 @@ Pod::Spec.new do |s|
  s.dependency 'Realm'
  s.dependency 'Alamofire'
  s.dependency 'AlamofireObjectMapper'
- s.dependency 'AlamofireImage'
+ s.dependency 'Kingfisher'
  s.dependency 'ReachabilitySwift'
 
 end
