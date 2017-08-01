@@ -79,6 +79,7 @@ public func prompt(_ message: String, title: String! = nil, text: String! = nil,
 public func toast(_ message: String?, in view: UIView? = nil, duration: TimeInterval? = nil, position: ToastPosition? = nil, title: String? = nil, image: UIImage? = nil, style: ToastStyle? = nil, completion: ((_ didTap: Bool) -> Void)? = nil) {
     guard let view = view ?? UIApplication.shared.keyWindow else { return }
     let manager = ToastManager.shared
+    view.hideToastActivity()
     view.makeToast(message, duration: duration ?? manager.duration, position: position ?? manager.position, title: title, image: image, style: style, completion: completion)
 }
 
