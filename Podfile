@@ -9,7 +9,7 @@ target :Swift3Basics do
   pod 'Alamofire'
   pod 'SwiftyJSON'
   pod 'KeychainSwift'
-  pod 'ObjectMapper'
+  pod 'ObjectMapper', '~> 2.2.8'
   pod 'ReachabilitySwift'
   pod 'Kingfisher', '~> 3.10.4'
 
