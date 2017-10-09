@@ -35,7 +35,7 @@ public func sync(_ task: () -> Void) {
 
 public func alert(_ message: String, title: String! = nil, completion: (() -> Void)? = nil) {
     let controller = UIAlertController(title: title, message: message, preferredStyle: .alert)
-    controller.addAction(UIAlertAction(title: "我知道了", style: .default) { action in
+    controller.addAction(UIAlertAction(title: "I KNOW", style: .default) { action in
         controller.dismiss(animated: true, completion: nil)
         completion?()
         })
@@ -44,11 +44,11 @@ public func alert(_ message: String, title: String! = nil, completion: (() -> Vo
 
 public func confirm(_ message: String, title: String! = nil, completion: @escaping (Bool) -> Void) {
     let controller = UIAlertController(title: title, message: message, preferredStyle: .alert)
-    controller.addAction(UIAlertAction(title: "否", style: .cancel) { action in
+    controller.addAction(UIAlertAction(title: "NO", style: .cancel) { action in
         controller.dismiss(animated: true, completion: nil)
         completion(false)
         })
-    controller.addAction(UIAlertAction(title: "是", style: .default) { action in
+    controller.addAction(UIAlertAction(title: "YES", style: .default) { action in
         controller.dismiss(animated: true, completion: nil)
         completion(true)
         })
@@ -57,11 +57,11 @@ public func confirm(_ message: String, title: String! = nil, completion: @escapi
 
 public func prompt(_ message: String, title: String! = nil, text: String! = nil, placeholder: String! = nil, completion: @escaping (String?) -> Void) {
     let controller = UIAlertController(title: title, message: message, preferredStyle: .alert)
-    controller.addAction(UIAlertAction(title: "取消", style: .cancel) { action in
+    controller.addAction(UIAlertAction(title: "CANCEL", style: .cancel) { action in
         controller.dismiss(animated: true, completion: nil)
         completion(nil)
         })
-    controller.addAction(UIAlertAction(title: "确定", style: .default) { action in
+    controller.addAction(UIAlertAction(title: "YES", style: .default) { action in
         controller.dismiss(animated: true, completion: nil)
         completion(controller.textFields?[0].text ?? "")
         })
